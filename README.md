@@ -6,9 +6,9 @@ Spring Boot와 JPA를 기반으로 한 **일정 관리 애플리케이션**입�
 
 ---
 
-### 일정 관리 (CRUD + 인증)
+### **일정 관리 (CRUD + 인증)**
 
-#### ✅  일정 생성
+#### ✅ 일정 생성
 - 할일 제목, 내용, 작성자명, 비밀번호, 작성일, 수정일 포함
 - ID는 서버에서 자동 생성, 작성일/수정일은 JPA Auditing을 통해 자동 관리
 
@@ -20,40 +20,20 @@ Spring Boot와 JPA를 기반으로 한 **일정 관리 애플리케이션**입�
   
 #### ✅ 일정 삭제
 
-### 유저 관리 (CRUD + 인증)
+### **유저 관리 (CRUD + 인증)**
 
 #### ✅ 유저 생성
 - 회원가입 시 유저명, 이메일, 비밀번호를 포함
 - 이메일은 중복 불가, 고유값으로 설정됨
 - 비밀번호는 암호화된 상태로 저장 (BCrypt 적용)
 
-#### 📄 유저 조회
+#### ✅ 유저 조회
 
-#### ✏️ 유저 수정
+#### ✅ 유저 수정
 - 기존 비밀번호 검증 후 수정 처리
 
-#### ❌ 유저 삭제
+#### ✅ 유저 삭제
 - 비밀번호 일치 시, 세션 인증된 사용자만 삭제 가능
-
----
-
-### 📝 회원가입
-
-- 회원가입 시 입력 필드: `username`, `email`, `password`
-- `@Email`, `@NotBlank`, `@Size` 등을 통한 유효성 검증 수행
-- 비밀번호는 BCrypt 암호화 후 저장
-  ```java
-  String encodedPassword = passwordEncoder.encode(password);
-  user.setPassword(encodedPassword);
-
-### 🔗 연관관계 설정
-
-#### 👤 작성자(User) 테이블 분리
-- 필드: `username`, `email`, `password`, `createdAt`, `updatedAt`
-- 일정 테이블은 작성자의 고유 ID(FK)를 참조
-- 동명이인 구분 가능 (ID 기반 매핑)
-- 작성자 ID 기준으로 해당 사용자의 일정 목록 조회 가능
-- 전체 일정 조회 시 작성자 정보 (`username`, `email`) 포함 응답
 
 ---
 
@@ -94,6 +74,18 @@ Spring Boot와 JPA를 기반으로 한 **일정 관리 애플리케이션**입�
 ![화면 캡처 2025-04-06 233120](https://github.com/user-attachments/assets/bf7f027d-9492-4f64-8cf7-f01a1ad1eb78)
 
 ---
+
+### 🔗 연관관계 설정
+
+#### 👤 작성자(User) 테이블 분리
+- 필드: `username`, `email`, `password`, `createdAt`, `updatedAt`
+- 일정 테이블은 작성자의 고유 ID(FK)를 참조
+- 동명이인 구분 가능 (ID 기반 매핑)
+- 작성자 ID 기준으로 해당 사용자의 일정 목록 조회 가능
+- 전체 일정 조회 시 작성자 정보 (`username`, `email`) 포함 응답
+
+---
+
 ## ✨ 구현된 기능 요약
 
 | 기능 | 구현 여부 | 설명 |
