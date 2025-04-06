@@ -1,6 +1,7 @@
 # schedule-revamp
 
 
+
 📌 API 명세표
 📅 Schedule API
 기능	Method	URL	Request 예시	Response 예시	상태 코드
@@ -15,3 +16,4 @@
 유저 조회	GET	/api/schedules/{id}	없음 (PathVariable 사용)	json<br>{ "username": "test3", "email": "gpdnjs3@gmail.com" }	200 OK
 유저 수정	PATCH	/api/schedules/{id}	json<br>{ "password": "기존비밀번호", "newPassword": "새비밀번호" }	없음 또는 수정 성공 메시지	200 OK
 유저 삭제	DELETE	/api/schedules/{id}	json<br>{ "password": "비밀번호" }	없음	200 OK
+필요하다면 ✅ 인증 방식 (세션 기반), 📌 에러 코드 예시, 🔒 보안 고려사항도 추가
